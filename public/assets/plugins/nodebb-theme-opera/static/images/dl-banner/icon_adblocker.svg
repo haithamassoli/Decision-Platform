@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="19px" viewBox="0 0 15 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_adblocker</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="addons-banner-940x188-v3a-copy-16" transform="translate(-36.000000, -100.000000)" stroke="#FFFFFF">
+            <g id="icon_adblocker" transform="translate(36.000000, 101.000000)">
+                <path d="M4.25,4.40178571 L10.75,11.0803571" id="stroke" stroke-linecap="round"></path>
+                <path d="M6.80520909,16.6161036 L3.09548182,13.8460143 C1.87200455,12.9319607 0.5,11.4714786 0.5,9.91719286 L0.5,2.80937143 C0.5,2.274175 1.4888,1.80181786 1.98752727,1.64699643 L6.13216364,0.35955 C7.02384545,0.0823892857 7.97609545,0.0823892857 8.86777727,0.35955 L13.0124136,1.64699643 C13.5111409,1.80181786 14.5,2.274175 14.5,2.80937143 L14.5,9.91719286 C14.5,11.4714786 13.1279364,12.9319607 11.9044591,13.8460143 L8.19473182,16.6161036 C7.78050455,16.9257464 7.21943636,16.9257464 6.80520909,16.6161036 Z" id="stroke"></path>
+                <path d="M10.75,4.40178571 L4.25,11.0803571" id="stroke" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
