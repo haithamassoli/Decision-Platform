@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 
 class ShowPostController extends Controller
 {
@@ -22,10 +22,9 @@ class ShowPostController extends Controller
         ->join('posts', 'comments.post_id', '=', 'posts.post_id')
         ->where('posts.post_id', '=', $id)
         ->get();
-        // dd($comments);
         return view('public_site.single_post',compact('posts','comments'));
     }
-    
+
     public function search(Request $request){
         $search_text = $request->get('query');
         $posts = DB::table('posts')

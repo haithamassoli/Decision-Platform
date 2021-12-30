@@ -135,7 +135,7 @@
         </div>
         <div class="hf__company-box">
           <p><a class="hf__link" href="/contact">Contact us</a></p>
-            <p>&copy; Opera Software 1995-<span id="current-year"></span></p>
+            <p>&copy; Discussion Platform 2021</span></p>
         </div>
     </div>
 </footer>

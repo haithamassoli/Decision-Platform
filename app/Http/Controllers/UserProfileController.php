@@ -11,7 +11,13 @@ class UserProfileController extends Controller
   public function destroy($post)
   {
       Post::where('post_id',$post)->delete();
-      return redirect('/user_profile')->with('success','تم حذف المنشور بنجاح');
+      return redirect('/user_profile')->with('success','Post Deleted Succesfully');
+  }
+  public function filter(Request $request)
+  {
+    $posts=Post::all()->where('category_id',$request->filter);
+
+    return view("users\user_pofile",compact('posts'));
   }
   public function add(Request $request)
   {
@@ -22,6 +28,6 @@ class UserProfileController extends Controller
         'user_id'=>$id,
         'post_id'=>$request->post_id,
       ]);
-      return redirect()->back();
+      return redirect()->back()->with('success','Comment Added Succesfully');
   }
 }

@@ -3,6 +3,7 @@
 @section('post-active','class=active')
 @section('content')
 <div class="content">
+
     <div class="row">
       <div class="col-md-12">
         @include('alerts.success')
@@ -86,10 +87,26 @@
                     @endforeach
                   </tbody>
               </table>
+
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
+    <div class="row">
+      <style>
+        .pagi *{
+          display: inline-block;
+
+        }
+      </style>
+        <div class="col-md-12 pagi">
+          {{ $posts->links() }}
+        </div>
+
+    </div>
   </div>
+
 @endsection

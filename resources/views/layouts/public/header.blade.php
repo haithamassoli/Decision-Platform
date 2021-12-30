@@ -109,9 +109,9 @@
                 </div>
 
                 <div id="nav-dropdown" >
-                    <?php if (!session()->has('name')) {?>
+
                     <ul id="logged-out-menu" class="nav navbar-nav navbar-right" style="margin:10px">
-                        <li class="login">
+                        <li class="login" style="visibility:@auth() {{'hidden'}} @else {{'visible'}} @endauth">
                             <a class="operaLoginButton"
                                 href="{{route('login')}}"
                                 data-base-href="/auth/opera" rel="nofollow" target="_top">
@@ -119,22 +119,25 @@
                             </a>
                         </li>
                     </ul>
-                <?php }else { ?>
-                    <div style="margin:10px">
+
+                    <div style="margin:10px" >
                     <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
-                        <li class="login">
+                      <li class="login" style="margin-right: 0px">
+                        <a href="/user_profile" class="operaLoginButton" rel="nofollow" target="_top">
+                            <span style="font-size: large;font-weight:bold;margin-right:0px" class="btn">@auth() {{Auth::user()->name}} @endauth</span>
+                        </a>
+                    </li>
+                      <li class="login" style="margin-left: -20px">
                             <a class="operaLoginButton"
                                 href="/user_profile"
                                 data-base-href="/auth/opera" rel="nofollow" target="_top">
-                                <img src='{{asset("black/img/".session('image'))}}' width="40px" height="40px" alt="" style="margin-bottom: 5px">
+                                @auth()
+                                <img src='{{asset("black/img/".Auth::user()->image)}}' width="40px" height="40px" alt="" style="margin-bottom: 5px">
+                                @endauth
+
                             </a>
                         </li>
-                        <li class="login">
-                            <a href="/user_profile" class="operaLoginButton" rel="nofollow" target="_top">
-                                <span class="btn" style="background-color: #46D2EB;color:white"><?php echo session('name') ?></span>
-                            </a>
-                        </li>
-                        <li class="login">
+                        <li  class="login" style="margin-left: 70px;margin-top:5px; visibility: @auth() visible @else hidden @endauth">
                             <a class="operaLoginButton" rel="nofollow" target="_top">
                                 <span class="btn" style="background-color: #46D2EB;color:white;width:80px">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
@@ -157,13 +160,15 @@
                         </li> --}}
                     </ul>
                 </div>
-                    <?php } ?>
+
                     <ul class="nav navbar-nav navbar-right"  >
+                      @if (Auth::user() !== null)
                         <li class="login">
                             <a href="{{route('add_post')}}" class="operaLoginButton" rel="nofollow" target="_top">
                                 <span class="btn" style="background-color: #46D2EB;color:white">Add Post</span>
                             </a>
                         </li>
+                        @endif
                         <li>
                             <form id="search-form" class="navbar-form clearfix hidden-xs"
                                 action="{{ url('/search') }}" role="search" method="GET" style="margin-bottom:15px;margin-right:100px;">

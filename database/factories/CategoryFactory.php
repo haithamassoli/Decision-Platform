@@ -17,6 +17,7 @@ class CategoryFactory extends Factory
         return [
             'category_name'=>$this->faker->randomElement($tags),
             'category_image'=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT37evpuessoBlqTCO6fleW5uaFHQAz9qXS8FoHh9gyfjyE95n9NkcwKMC5GiPPEkpKGLo&usqp=CAU",
+            'category_description'=>$this->faker->paragraph(),
             'created_at'=>now(),
             'updated_at'=>now(),
         ];

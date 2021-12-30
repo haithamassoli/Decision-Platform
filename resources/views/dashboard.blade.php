@@ -1,3 +1,4 @@
+
 @extends('layouts.arabic.master')
 @section('title','لوحة التحكم')
 @section('main-active','class=active')

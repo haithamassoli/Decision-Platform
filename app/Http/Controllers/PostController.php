@@ -22,7 +22,8 @@ class PostController extends Controller
         ->select('*')
         ->join('users', 'users.id', '=', 'posts.user_id')
         ->join('categories', 'categories.category_id', '=', 'posts.category_id')
-        ->get();
+        ->orderByDesc('posts.created_at')
+        ->paginate(5);
         return view('pages.post.posts', compact('posts'));
     }
 

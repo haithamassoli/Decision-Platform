@@ -13,8 +13,13 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
-        ];
+      $tags=['Sport','Science','Fashion','Movies','Public'];
+      return [
+          'comment' => $this->faker->paragraph(),
+          'user_id' => rand(1,2),
+          'post_id' => rand(1,2),
+          'created_at'=>now(),
+          'updated_at'=>now(),
+      ];
     }
 }

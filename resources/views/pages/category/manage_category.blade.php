@@ -23,7 +23,7 @@
                       الإسم
                     </th>
                     <th class="text-center">
-                      الصورة
+                      وصف الصنف
                     </th>
                     <th class="text-center">
                      تاريخ الانشاء
@@ -42,8 +42,8 @@
                       <td class="text-center">
                         {{$category->category_name}}
                       </td>
-                      <td class="text-center">
-                        <img src='{{asset("black/img/$category->category_image")}}' alt="" width="90px" height="90px">
+                      <td class="text-center" style="max-width:220px">
+                       {{$category->category_description}}
                       </td>
                       <td class="text-center">
                         {{$category->created_at}}

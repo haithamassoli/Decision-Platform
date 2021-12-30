@@ -2,6 +2,7 @@
 @section('content')
 <body>
     <div class="container" id="download-opera">
+
         <div class="get-opera">
             <div class="get-opera-closer">
                 <svg width="24px" height="24px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +44,7 @@
         </noscript>
 
 
-
+        @include('alerts.success')
         <div data-widget-area="header">
 
         </div>
@@ -63,21 +64,27 @@
                             <div class="category-details clearfix col-md-9 col-sm-9">
                                 <div class="category-color" style="background-color: #501ac4"></div>
 
-                                <div class="content">
-                                    <div class="col-md-8 show-separator clickable-area">
+                                <div class="content" >
+                                    <div class="col-md-8 show-separator clickable-area" style="padding: 0 0 10px 10px">
                                         <a class="clickable-area-link" href="/index/post/{{ $post->post_id }}"> </a>
                                         <h2 class="title">
                                             <a href="/index/post/{{ $post->post_id }}" itemprop="url">
 
                                                 {{ $post->post_title }}
                                             </a>
+                                            <small style="color:rgb(173, 173, 173);display:block">{{ $post->created_at->diffForHumans()}}</small>
 
                                         </h2>
 
                                         <div class="description">
                                             <p>{!! $post->post_body !!}</p>
                                         </div>
-
+                                        <?php $tag = explode(',',$post->post_tag) ?>
+                                        @foreach ($tag as $item)
+                                        <span style="background-color:#0597d9;color:white;display:inline-block;width:fit-content;height:25px">
+                                            <p style="padding:0px 5px">#{!! $item !!}</p>
+                                        </span>
+                                        @endforeach
                                     </div>
                                     <?php
                                     $counter = DB::table('comments')

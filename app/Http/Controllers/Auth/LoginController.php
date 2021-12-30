@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -20,7 +21,19 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    protected function authenticated(Request $request, $user)
+    {
+      $email = $request->email;
+        $role = DB::table('users')->where('email', $email)->value('role');
+        $pass = DB::table('users')->where('email', $email)->value('password');
+        $name = DB::table('users')->where('email', $email)->value('name');
+        $img = DB::table('users')->where('email', $email)->value('image');
+        $id = DB::table('users')->where('email', $email)->value('id');
+    if ($role == 'user') {// do your magic here
+        return redirect()->route('publicIndex');
+    }
 
+    }
     /**
      * Where to redirect users after login.
      *

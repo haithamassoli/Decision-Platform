@@ -18,7 +18,7 @@ class CommentController extends Controller
         ->select('*')
         ->join('users', 'users.id', '=', 'comments.user_id')
         ->join('posts', 'posts.post_id', '=', 'comments.post_id')
-        ->get();
+        ->paginate(10);
 
         return view("pages.comment.manage_comment", compact("comments"));
 

@@ -40,6 +40,7 @@
                     </p>
                 </div>
             </noscript> --}}
+
                 <div class="col-lg-12" style="margin-left: 100px">
 
                     <h1 class="section-title">Categories</h1>
@@ -73,7 +74,7 @@
                                             </h2>
 
                                             <div class="description">
-                                                <p>Discussions about Opera browser that runs on your computer</p>
+                                                <p>{{$category->category_description}}</p>
 
                                             </div>
 

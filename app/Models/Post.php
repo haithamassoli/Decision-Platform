@@ -19,4 +19,10 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
+    
+    public function post()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
+

@@ -1,5 +1,6 @@
 <?php
-
+namespace App\Http\Middleware;
+namespace Illuminate\Auth\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\PublicPagesController;
 use App\Http\Controllers\UserProfileController;
 use App\Models\Post;
 use Illuminate\Http\Client\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +55,7 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth',);
 // Route::post('reddit/register',[UserLoginController::class,'register'])->name('register');
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
@@ -106,6 +108,7 @@ Route::get("add/addPost", [PostController::class,'add_post'])->name('add_post');
 Route::post('index/add/addPost',[PublicPagesController::class,'store'])->name('addPost.store');
 // Route::resource('index/add/addPost',PostController::class);
 Route::delete('delete/{post}',[UserProfileController::class,'destroy'])->name('profile_delete');
+Route::post('user_profile',[UserProfileController::class,'filter'])->name('profile_filter');
 Route::post('add/comment',[UserProfileController::class,'add'])->name('add_comment');
 
 

@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="location">Categories</label>
-                <select name="category_id" id="">
+                <select name="category_id" class="form-select form-control" id="">
                     @foreach ($cat as $item)
                     <option value="{{$item->category_id}}">{{$item->category_name}}</option>
                     @endforeach
@@ -30,8 +30,7 @@
                 <label for="birthday">Discussion body</label>
                 <textarea class="ckeditor form-control" name="post_body"></textarea>
             </div>
-            form
-            <input type="submit" name="submit" value="Add Post">
+            <input type="submit" name="submit" class="btn btn-primary" value="Add Post">
 
         </form>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
+use App\Providers\UserProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,25 +29,24 @@ class RedirectIfAuthenticated
         $name = DB::table('users')->where('email', $email)->value('name');
         $img = DB::table('users')->where('email', $email)->value('image');
         $id = DB::table('users')->where('email', $email)->value('id');
-        if ($role == 'admin'){
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }
         return $next($request);
-    }else if ($role == 'user'){
-      if(Hash::check($request->password,$pass)){
-        //   session_start();
-        //   $_SESSION['email']=$email;
-        //   $_SESSION['name']=$name;
-        session(['name'=>$name]);
-        session(['email'=>$email]);
-        session(['image'=>$img]);
-        session(['id'=>$id]);
-        return redirect('/main');
-      }else{return $next($request);}
-    }
-    return redirect('/');
+    // else if ($role == 'user'){
+    //   if(Hash::check($request->password,$pass)){
+    //     //   session_start();
+    //     //   $_SESSION['email']=$email;
+    //     //   $_SESSION['name']=$name;
+    //     session(['name'=>$name]);
+    //     session(['email'=>$email]);
+    //     session(['image'=>$img]);
+    //     session(['id'=>$id]);
+    //     return redirect('/main');
+    //   }else{return $next($request);}
+    // }
     }
 }

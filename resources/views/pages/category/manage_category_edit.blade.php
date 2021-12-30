@@ -18,6 +18,11 @@
                                 <label>الصنف</label>
                                 <input type="text" name="category_name" class="form-control" placeholder="الصنف" value="{{$category->category_name}}">
                             </div>
+                            <div class="form-group">
+                              <label>الوصف</label>
+                              <input type="text" name="category_description" value="{{$category->category_description}}" class="form-control {{ $errors->has('category_description') ? ' is-invalid' : '' }}" placeholder="الوصف">
+                              @include('alerts.feedback', ['field' => 'category_description'])
+                          </div>
                                 <label>الصورة</label>
                                 <input type="file" name="category_image" class="form-control">
                     </div>

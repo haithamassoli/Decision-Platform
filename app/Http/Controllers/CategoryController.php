@@ -51,7 +51,8 @@ class CategoryController extends Controller
         $request->category_image->move(public_path('black/img'),$image);
         Category::create([
             'category_name'=>$request->category_name,
-            'category_image'=>$image
+            'category_image'=>$image,
+            'category_description'=>$request->category_description
         ]);
         $categories = Category::all();
         return view("pages.category.manage_category", compact("categories"));
@@ -97,7 +98,8 @@ class CategoryController extends Controller
         $request->category_image->move(public_path('black/img'),$image);
         Category::where('category_id',$id)->update([
             'category_name'=>$request->category_name,
-            'category_image'=>$image
+            'category_image'=>$image,
+            'category_description'=>$request->category_description
         ]);
         // $categories = Category::all();
         return redirect('admin/manage_categories');

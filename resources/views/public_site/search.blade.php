@@ -65,7 +65,7 @@
                                 <div class="category-color" style="background-color: #501ac4"></div>
 
                                 <div class="content">
-                                    <div class="col-md-8 show-separator clickable-area">
+                                    <div class="col-md-8 show-separator clickable-area" style="padding: 0 0 10px 10px">
                                         <a class="clickable-area-link" href="/index/post/{{ $post->post_id }}"> </a>
                                         <h2 class="title">
 
@@ -78,8 +78,15 @@
                                         </h2>
 
                                         <div class="description">
-                                            <p>{{ $post->post_body }}</p>
+                                            <p>{!! $post->post_body !!}</p>
                                         </div>
+
+                                        <?php $tag = explode(',',$post->post_tag) ?>
+                                        @foreach ($tag as $item)
+                                        <span style="background-color:#0597d9;color:white;display:inline-block;width:fit-content;height:25px">
+                                            <p style="padding:0px 5px">#{!! $item !!}</p>
+                                        </span>
+                                        @endforeach
 
                                     </div>
 
@@ -96,7 +103,7 @@
 
                                 </div>
 
-                                <span class="col-md-12 col-xs-12 box-footer"><a
+                                {{-- <span class="col-md-12 col-xs-12 box-footer"><a
                                         href="category/11/opera-for-windows.html"><span class="fa-stack fa-lg"><i
                                                 style="color: #f2f2f2;" class="fa fa-circle fa-stack-2x"></i><i
                                                 style="color:#00abef;"
@@ -118,7 +125,7 @@
                                             class="fa-stack fa-lg"><i style="color: #f2f2f2;"
                                                 class="fa fa-circle fa-stack-2x"></i><i style="color:#009687;"
                                                 class="fa fa-stack-1x fa-thumbs-up"></i></span><small>Suggestions and
-                                            feature requests</small></a> </span>
+                                            feature requests</small></a> </span> --}}
 
                             </div>
 

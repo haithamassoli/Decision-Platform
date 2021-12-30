@@ -30,7 +30,8 @@ class PublicPagesController extends Controller
             'post_tag'=>$request->post_tag,
             'user_id'=>$id
         ]);
-        return redirect('/main');
+        $path="index/$request->category_id";
+        return redirect($path)->with('success','Post Added Succesfully');
     }
 
 }
